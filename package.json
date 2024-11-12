@@ -3,7 +3,7 @@
   "displayName": "Fast-create React TS Components",
   "publisher": "dhotlo2",
   "description": "Create react+ts components with one line on import.",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.95.0"
   },
