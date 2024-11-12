@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
     after: {
       margin: '0 0 0 1em',
       color: 'rgba(140, 220, 140, 1)',
-      contentText: '[Create component] (Cmd+Enter) | [Cancel] (Cmd+C)',
+      contentText: '[Create component] (Cmd/Ctrl+Enter) | [Cancel] (Cmd/Ctrl+C)',
       fontWeight: 'bold',
     }
   });
@@ -44,8 +44,25 @@ export default ${componentName};
         fs.writeFileSync(componentFilePath, componentContent);
 
         setTimeout(() => {
-          vscode.workspace.openTextDocument(componentFilePath).then(doc => {
-            vscode.window.showTextDocument(doc);
+          vscode.workspace.openTextDocument(componentFilePath).then(newDoc => {
+            // Open the newly created component and keep it open
+            vscode.window.showTextDocument(newDoc, { preview: false });
+          
+            if (currentEditor) {
+              // Save, close, and reopen the original document to refresh the import path
+              currentEditor.document.save().then(() => {
+                vscode.window.showTextDocument(currentEditor!.document, { preview: false }).then(() => {
+                  vscode.commands.executeCommand('workbench.action.closeActiveEditor').then(() => {
+                    vscode.workspace.openTextDocument(currentEditor!.document.uri).then(originalDoc => {
+                      vscode.window.showTextDocument(originalDoc, { preview: false }).then(() => {
+                        // Finally, refocus on the new component file
+                        vscode.window.showTextDocument(newDoc, { preview: false });
+                      });
+                    });
+                  });
+                });
+              });
+            }
           });
         }, 200);
 
@@ -106,7 +123,7 @@ function checkForComponentImport(
   console.log("Processing line:", text);
 
   // Regular expression to match a complete import statement with relative path and .tsx or .js extension
-  const regex = /import\s+(?:\{?\s*(\w+)\s*\}?)?\s+from\s+['"](.[./]+)(\w+)(\.tsx|\.js)?['"];\s*$/;
+  const regex = /import\s+(?:\{?\s*(\w+)\s*\}?)?\s+from\s+['"](.[./]+(?:[A-Za-z0-9_-]+\/)*)(\w+)(\.tsx|\.js)?['"];\s*$/;
   const match = regex.exec(text);
 
   if (match) {

@@ -1,6 +1,6 @@
 # Fast Create React Components
 
-Fast Create React Components is a Visual Studio Code extension designed to streamline the process of creating React components. With a single line of code, you can import a component, and if it doesn’t already exist, this extension will prompt you to create it automatically—saving time and minimizing interruptions in your workflow.
+Fast Create React Components is a Visual Studio Code extension designed to streamline the process of creating React+TS components. With a single line of code, you can import a component, and if it doesn’t already exist, this extension will prompt you to create it automatically—saving time and minimizing interruptions in your workflow.
 
 ## Features
 
@@ -9,6 +9,7 @@ Fast Create React Components is a Visual Studio Code extension designed to strea
 	•	Create the component with Cmd+Enter (macOS) or Ctrl+Enter (Windows/Linux).
 	•	Cancel the prompt with Cmd+Esc (macOS) or Ctrl+Esc (Windows/Linux).
 	•	Automatic Component Structure: When creating a component, the extension generates a basic React component file with the component name, skeleton code, and a functional component structure using TypeScript (.tsx).
+    •	Auto creates the folder if it doesn't exist as well.
 
 ## Screenshots
 

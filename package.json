@@ -1,8 +1,8 @@
 {
   "name": "fast-create-react-components",
-  "displayName": "Fast-create React Components",
+  "displayName": "Fast-create React TS Components",
   "publisher": "dhotlo2",
-  "description": "Create react components with one line on import.",
+  "description": "Create react+ts components with one line on import.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.95.0"
