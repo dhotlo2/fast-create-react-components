@@ -14,7 +14,7 @@ Fast Create React Components is a Visual Studio Code extension designed to strea
 
 Here’s a preview of the extension in action:
 
-![Popup Example](https://github.com/dhotlo2/fast-create-react-components/blob/master/images/screenshot.png)
+![Popup Example](https://raw.githubusercontent.com/dhotlo2/fast-create-react-components/master/images/screenshot.png)
 
 ## Requirements
 
