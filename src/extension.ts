@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
     after: {
       margin: '0 0 0 1em',
       color: 'rgba(140, 220, 140, 1)',
-      contentText: '[Create component] (Cmd/Ctrl+Enter) | [Cancel] (Cmd/Ctrl+C)',
+      contentText: '[Create component] (Cmd/Ctrl+Enter) | [Cancel] (Cmd/Ctrl+Shift+C)',
       fontWeight: 'bold',
     }
   });

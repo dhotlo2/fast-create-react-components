@@ -45,12 +45,12 @@
       },
       {
         "command": "extension.cancelCreateComponent",
-        "key": "cmd+c",
+        "key": "cmd+shift+c",
         "when": "editorTextFocus"
       },
       {
         "command": "extension.cancelCreateComponent",
-        "key": "ctrl+c",
+        "key": "ctrl+shift+c",
         "when": "editorTextFocus"
       }
     ]
